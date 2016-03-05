@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>rootusr.net</title>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Caitlin A. Patton" />
+    <link href="http://static.tumblr.com/u3fltkw/8Leo3c2ny/rootusr.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1><a href="{BlogURL}">{Title}</a></h1> {block:Description}
+        <h2>{Description}</h2> {/block:Description}
+        <ul class="topofsite">
+            <li class="nav"><a class="navbar" href="http://www.rootusr.net/about">About Me</a></li>
+            <li class="nav"><a class="navbar" href="http://www.rootusr.net/tutorials">Tutorials</a></li>
+            <li class="nav"><a class="navbar" href="http://www.rootusr.net/jsadventures">Adventures in JavaScript</a></li>
+        </ul>
+    </header>
+    <section id=sidebar>
+        <div id="googlead"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- DreamWeaver -->
+           <ins class="adsbygoogle"
+            style="display:inline-block;width:300px;height:250px"
+            data-ad-client="ca-pub-5405956343511382"
+            data-ad-slot="3887308551"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        </div>
+      
+    <!--This Blog has Pages-->
+    {block:HasPages}
+    <div class="page">
+        {block:Pages}{/block:Pages}
+    </div>
+    {/block:HasPages} {block:Posts}
+    <!--Text Posts-->
+    {block:Text}
+    <div class="post">
+        {block:Title}
+        <a href="{Permalink}">{Title}</a>
+        <!--This links the post title to the post page if you click on it.-->
+        {/block:Title} {Body}
+        <ul class="like-reblog">
+            <li>{LikeButton}</li>
+            <li>{ReblogButton}</li>
+            <li>{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</li>
+            <li>{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}</li>
+        </ul>
+    </div>
+    {block:PostNotes}{PostNotes}{/block:PostNotes} {/block:Text}
+
+    <!--Photo Posts-->
+    {block:Photo}
+    <div class="post">
+        <img src="{PhotoURL-500}">
+        <ul class="like-reblog">
+            <li>{LikeButton}</li>
+            <li>{ReblogButton}</li>
+            <li>{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</li>
+            <li>{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}</li>
+        </ul>
+    </div>
+    {/block:Photo}
+
+    <!--Quote Posts-->
+    {block:Quote}
+    <div class="post">
+        {Quote} {block:Source}{Source}{/block:Source}
+        <ul class="like-reblog">
+            <li>{LikeButton}</li>
+            <li>{ReblogButton}</li>
+            <li>{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</li>
+            <li>{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}</li>
+        </ul>
+    </div>
+    {/block:Quote}
+
+    <!--Link Posts-->
+    {block:Link}
+    <div class="post">
+        <a href="{URL}" {Target}>{Name}</a>
+        <ul class="like-reblog">
+            <li>{LikeButton}</li>
+            <li>{ReblogButton}</li>
+            <li>{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</li>
+            <li>{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}</li>
+        </ul>
+    </div>
+    {/block:Link}
+
+    <!--Chat Posts-->
+    {block:Chat}
+    <div class="post">
+        <table>
+            {block:Lines}
+            <tr>
+                <th>{block:Label}{Label}{/block:Label}</th>
+                <td>{Line}</td>
+            </tr>
+            {/block:Lines}
+        </table>
+        <ul class="like-reblog">
+            <li>{LikeButton}</li>
+            <li>{ReblogButton}</li>
+            <li>{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</li>
+            <li>{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}</li>
+        </ul>
+    </div>
+    {/block:Chat}
+
+    <!--Audio Posts-->
+    {block:Audio}
+    <div class="post">
+        {AudioPlayer} {block:Caption}{Caption}{/block:Caption}
+        <ul class="like-reblog">
+            <li>{LikeButton}</li>
+            <li>{ReblogButton}</li>
+            <li>{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</li>
+            <li>{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}</li>
+        </ul>
+    </div>
+    {/block:Audio}
+
+    <!--Video Posts-->
+    {block:Video}
+    <div class="post">
+        {Video-500} {block:Caption}{Caption}{/block:Caption}
+        <ul class="like-reblog">
+            <li>{LikeButton}</li>
+            <li>{ReblogButton}</li>
+            <li>{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</li>
+            <li>{block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}</li>
+        </ul>
+    </div>
+    {/block:Video} {/block:Posts} 
+    
+    <!--Footer-->
+    <footer>
+    {block:Pagination}
+    <div class="pagenav">
+        {block:PreviousPage}<a href="{PreviousPage}">Previous</a>{/block:PreviousPage} {block:NextPage}
+        <a href="{PreviousPage}">Previous</a>{/block:NextPage}
+    </div>
+    {/block:Pagination}
+    </footer>
+    <script>
+        http://static.tumblr.com/u3fltkw/Df6o3c1ua/jquery-2.2.1.js
+    </script>
+</body>
+</html>
