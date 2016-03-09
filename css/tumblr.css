@@ -1,0 +1,115 @@
+header {
+    background: whitesmoke;
+    border: 5px solid black;
+    position: fixed;
+    width: 99%;
+    top: 0px;
+    
+}
+    
+header a {
+    text-decoration: none;
+    color: darkgray;
+}
+
+
+.masthead {
+   color: darkgray;
+}
+
+.masthead a {
+   color: darkgray;
+}
+
+    
+body {
+    background: whitesmoke;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    background-image: url('{image:Background}');
+}
+    
+h1, h2, h3, h4, h5, h6 {
+    font-family: serif;
+}
+    
+h1 {
+    top: 10%;
+    font-size: 45px;
+    text-align: left;
+    display: inline;
+}
+    
+h2 {
+    display: inline;
+    top: 120px;
+    font-size: 27px;
+}
+
+.blog-description {
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode'
+}
+   
+a {
+   text-decoration: none;
+   color: darkgray;
+}
+
+a:hover {
+    color: plum;
+}
+
+article {
+    margin-left: 0px;
+    max-width: 70%;
+}
+
+.nav-wrapper ul {
+    background-color: black;
+    margin: 0px;
+    padding: 0px;
+}
+
+.nav-wrapper li {
+    display: inline;
+    list-style-type: none;
+    padding: 5px;
+}
+
+.nav-wrapper form{
+    float: right;
+}
+
+.nav-wrapper a:hover {
+    background-color: plum;
+}
+
+.post-content {
+    border-radius: 6px;
+    box-shadow: 5px 5px 5px 5px #777777;
+    margin-top: 100px;
+}
+
+#sidebar {
+    background-color: darkgray;
+    position: fixed;
+    margin-top: 10%;
+    right: 10%;
+    height: 300px;
+    width: 250px;
+    border-radius: 6px;
+}
+
+.like-reblog {
+    list-style: none;
+}
+
+.like-reblog li {
+    float: right;
+    padding: 6px;
+    height: 20px;
+}
+
+.type-photo {
+    margin-left: 0px;
+}

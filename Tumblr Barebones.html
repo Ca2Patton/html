@@ -5,22 +5,40 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="author" content="Caitlin A. Patton" />
+    <title>{block:TagPage}{Tag} | {/block:TagPage} {block:SearchPage}{lang:Search results for SearchQuery} | {/block:SearchPage}{block:PostSummary}{PostSummary} | {/block:PostSummary}{Title}</title>
 
     <!--For the Customization Tab-->
     {block:Hidden}
+    <meta name="font:Title" content="Bookman Old Style" />
+    <meta name="font:Body" content="serif" />
     <meta name="color:Background" content="#F5F5F5" />
     <meta name="color:Content Background" content="$fff" />
+    <meta name="color:Masthead text" content="{TitleColor}" />
     <meta name="color:Heading Text" content="#A9A9A9" />
     <meta name="color:Text" content="#000" />
+    <meta name="color:Link" content="#A9A9A9" />
+    <meta name="color:Hover" content="plum" />
+    <meta name="color:Shadows" content="#eee" />
+    <meta name="color:Accent 1" content="#A9A9A9" />
+    <meta name="color:Accent 2" content="#fff" />
+    
+    <!--Custom Links-->
+    <meta name="text:Link 1" content="link one" />
+    <meta name="text:Link 1 URL" content="" />
+    <meta name="text:Link 2" content="link two" />
+    <meta name="text:Link 2 URL" content="" />
+    <meta name="text:Link 3" content="link three" />
+    <meta name="text:Link 3 URL" content="" />
+    <meta name="text:Link 4" content="link four" />
+    <meta name="text:Link 4 URL" content="" />
+    
+    <!--Hide/Show Options-->
+    <meta name="if:ShowAvatar" content="1" />
     {/block:Hidden}
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    
+    <link href="" type="text/css" rel="stylesheet" />
+    <!--Style Sheet for Tumblr Theme-->
     <style type="text/css">
-    body {
-        background: {color:Background};
-        font-family: {font:Body};
-    }
-    
     {CustomCSS}
     </style>
 </head>
@@ -45,7 +63,7 @@
                 <!--This is where the blog description is contained.-->
                 {block:ShowDescription} 
                 {block:Description}
-                <p class="blog-description">{Description}</p>
+                <h2 class="blog-description">{Description}</h2>
                 {/block:Description} 
                 {/block:ShowDescription}
             </div>
@@ -67,15 +85,33 @@
                     {block:AskEnabled}
                     <li><a href="/ask">{AskLabel}</a></li>
                     {/block:AskEnabled}
-                    <li></li>
+                    <li><a href="/about"></a>About Me</li>
+                    <li><a href="/tutorials">Tutorials</a></li>
+                    <li><a href="/jsadventures">Adventures in JavaScript</a></li>
+                    <!--Search Bar-->
+                    <li id="search"><form action="/search" method="get">
+            <input type="text" name="q" value="{SearchQuery}" placeholder="{lang:Search}" />
+        </form></li>
                 </ul>
             </nav>
         </div>
-        <!--Search Bar-->
-        <form action="/search" method="get">
-            <input type="text" name="q" value="{SearchQuery}" placeholder="{lang:Search}" />
-        </form>
+
     </header>
+    
+    <div id="sidebar">
+        <section>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- DreamWeaver -->
+            <ins class="adsbygoogle"
+            style="display:inline-block;width:250px;height:300px"
+            data-ad-client="ca-pub-5405956343511382"
+            data-ad-slot="3887308551"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </section>
+    </div>
+    
     
     {block:Posts}
     <article>
@@ -214,21 +250,30 @@
         <!--So each post has the same footer-->
         {block:Date}
         <footer class="contentinfo" role="contentinfo">
-            <a href="{Permalink}" title="{ShortMonth} {DayOfMonth}{DayOfMonthSuffix} {Year}">
+            <ul class="like-reblog">
+                <li><a href="{Permalink}" title="{ShortMonth} {DayOfMonth}{DayOfMonthSuffix} {Year}">
                 {TimeAgo}
-            </a>
+                </a>
+                </li>
 
-            {block:NoteCount}
-            <a class="note-count" href="{Permalink}#notes">
-                {NoteCountWithLabel}
-            </a>
-            {/block:NoteCount}
+                {block:NoteCount}
+                <li>
+                <a class="note-count" href="{Permalink}#notes">
+                    {NoteCountWithLabel}
+                </a>
+                {/block:NoteCount}
+                </li>
 
-            {block:RebloggedFrom}
-            <a class="reblog-link" href="{ReblogParentURL}">
-                {ReblogParentName}
-            </a>
-            {/block:RebloggedFrom}
+                {block:RebloggedFrom}
+                <li><a class="reblog-link" href="{ReblogParentURL}">
+                    {ReblogParentName}
+                </a>
+                {/block:RebloggedFrom}
+                </li>
+                <li>{ReblogButton}</li>
+                <li>{LikeButton}</li>
+            </ul>
+
 
             {block:PermalinkPage}
 
@@ -243,7 +288,7 @@
                 {PostNotes}
             </div>
             {/block:PostNotes}
-
+            
             {/block:PermalinkPage}
         </footer>
         {/block:Date}
