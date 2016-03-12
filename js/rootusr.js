@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    ("header").scroll(function() {
-        $(this).fadeTo("slow", 0.15);
+     $(window).scroll(function() {
+            $("header").fadeTo("slow", 0.5);
+        });
     });
-});
